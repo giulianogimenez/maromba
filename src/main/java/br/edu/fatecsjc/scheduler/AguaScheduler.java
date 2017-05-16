@@ -40,6 +40,4 @@ public class AguaScheduler {
 		scheduler.start();
 		scheduler.scheduleJob(job, trigger);
 	}
-	
-
 }

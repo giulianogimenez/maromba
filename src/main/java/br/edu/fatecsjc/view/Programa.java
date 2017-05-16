@@ -16,7 +16,11 @@ public class Programa {
 		AguaScheduler aguaSchedulerGiu = new AguaScheduler();
 		aguaSchedulerGiu.iniciarAguaScheduler("Giu", 5);
 		
-		ComidaScheduler comidaSchedulerGiu = new ComidaScheduler();
+		ComidaScheduler comidaSchedulerGiu = new ComidaScheduler();	
 		comidaSchedulerGiu.iniciarComidaScheduler("Giu", 15);
+		
+		
 	}
 }
+
+

@@ -10,8 +10,7 @@ import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
 
-import br.edu.fatecsjc.jobs.AguaJob;
-import br.edu.fatecsjc.jobs.ComidaJob;
+import br.edu.fatecsjc.jobs.*;
 
 public class ComidaScheduler {
 	public void iniciarComidaScheduler(String nomeAluno, int intervalo) throws SchedulerException {
