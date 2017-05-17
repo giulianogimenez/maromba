@@ -24,6 +24,7 @@ public class Programa {
 		horaFinal = Integer.parseInt(JOptionPane.showInputDialog("Informe a hora final"));
 		intervaloMinuto = Integer.parseInt(JOptionPane.showInputDialog("Informe o intervalo em minutos"));
 		
+		/*teste*/
 		ComidaScheduler comidaSchedulerBonfa = new ComidaScheduler();
 		comidaSchedulerBonfa.iniciarComidaScheduler(nome, 6, 21, 1);
 	}
