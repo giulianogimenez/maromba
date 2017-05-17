@@ -19,7 +19,7 @@ import br.edu.fatecsjc.jobs.AguaJob;
 
 public class AguaScheduler {
 	
-	public void iniciarAguaScheduler(String nomeAluno, int horaInicial, int horaFinal, int intervaloMinutos) throws SchedulerException {
+	public void iniciarAguaScheduler(String nomeAluno, int horaInicial, int horaFinal, int intervalo) throws SchedulerException {
 		JobDataMap map = new JobDataMap();
 		map.put("nomeAluno", nomeAluno);
 		JobDetail job = JobBuilder.newJob(AguaJob.class).setJobData(map)
@@ -44,7 +44,7 @@ public class AguaScheduler {
 				.newTrigger()
 				.withIdentity(nomeAluno, "agua")
 				.withSchedule(
-					CronScheduleBuilder.cronSchedule(String.format("%d %d/%d %d-%d * * ?", LocalDateTime.now().getSecond(), LocalDateTime.now().getMinute(), intervaloMinutos, horaInicial, horaFinal)))
+					CronScheduleBuilder.cronSchedule(String.format("%d %d/%d %d-%d * * ?", LocalDateTime.now().getSecond(), LocalDateTime.now().getMinute(), intervalo, horaInicial, horaFinal)))
 				.build();
 
 		// schedule it

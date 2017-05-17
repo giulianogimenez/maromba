@@ -17,7 +17,7 @@ import org.quartz.impl.StdSchedulerFactory;
 import br.edu.fatecsjc.jobs.*;
 
 public class ComidaScheduler {
-	public void iniciarComidaScheduler(String nomeAluno, int horaInicial, int horaFinal, int intervaloHoras) throws SchedulerException {
+	public void iniciarComidaScheduler(String nomeAluno, int horaInicial, int horaFinal, int intervalo) throws SchedulerException {
 		JobDataMap map = new JobDataMap();
 		map.put("nomeAluno", nomeAluno);
 		JobDetail job = JobBuilder.newJob(ComidaJob.class).setJobData(map)
@@ -42,7 +42,8 @@ public class ComidaScheduler {
 				.newTrigger()
 				.withIdentity(nomeAluno, "-comida")
 				.withSchedule(
-					CronScheduleBuilder.cronSchedule(String.format("%d %d %d-%d/%d * * ?", LocalDateTime.now().getSecond(), LocalDateTime.now().getMinute(), horaInicial, horaFinal, intervaloHoras)))
+					CronScheduleBuilder.cronSchedule(String.format("%d %d/%d %d-%d * * ?", 
+							LocalDateTime.now().getSecond(), LocalDateTime.now().getMinute(), intervalo, horaInicial, horaFinal)))
 				.build();
 
 		// schedule it
